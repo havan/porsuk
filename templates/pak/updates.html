@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+
+{% block extratitle %}{% trans "Update List" %} | {% endblock %}
+
+{% block content %}
+<div id="updates">
+<table>
+	<caption>
+	{% block caption %} {% endblock %}
+	{% trans "Update List" %} 
+	{% if is_paginated %}
+	<span class="search-results">{% blocktrans %}Showing {{ results_per_page }} results per page of about {{ hits }} results in {{pages}} pages{% endblocktrans %}</span>
+	{% endif %}
+	</caption>
+	<thead>
+	  <tr>
+	    <th>{% trans "Date" %}<span class="orderbuttons"><a href="./date">+</a> <a href="./-date">-</a></span></td>
+	    <th>{% trans "Package" %}</td>
+	    <th>{% trans "Updater" %}<span class="orderbuttons"><a href="./name">+</a> <a href="./-name">-</a></span></td>
+	    <th>{% trans "Repository" %}</td>
+	    <th>{% trans "Type" %}<span class="orderbuttons"><a href="./type">+</a> <a href="./-type">-</a></span></td>
+	    <th>{% trans "Version" %}<span class="orderbuttons"><a href="./version">+</a> <a href="./-version">-</a></span></th>
+	    <th>{% trans "Release" %}<span class="orderbuttons"><a href="./release">+</a> <a href="./-release">-</a></span></th>
+	  </tr>
+	</thead>	
+	<tfoot>
+	  <tr>
+	    <th>{% trans "Date" %}</td>
+	    <th>{% trans "Package" %}</td>
+	    <th>{% trans "Updater" %}</td>
+	    <th>{% trans "Repository" %}</td>
+	    <th>{% trans "Type" %}</td>
+	    <th>{% trans "Version" %}</th>
+	    <th>{% trans "Release" %}</th>
+	  </tr>
+	</tfoot>
+	<tbody>
+	  {% for update in updates_list %}  
+	  <tr class="{% cycle 'rowA' 'rowB' %}">
+	    <td><a href="/pisi/update/{{ update.id }}">{{ update.date|date:"j F, Y" }}</a></td>
+	    <td><a href="/pisi/source/{{ update.source_set.all.0.id }}">{{ update.source_set.all.0.name }}</td>
+	    <td><a href="/pisi/packager/{{ update.packager }}">{{ update.packager }}</a></td>
+	    <td><a href="/pisi/repository/{{ update.source_set.all.0.repo.name }}/sources">{{ update.source_set.all.0.repo.name }}</td>
+	    <td>
+	    <center>	    
+	    {% if update.type %}<a href="/pisi/updates/type/{{ update.type }}">{% endif %}
+	    {{ update.type|default_if_none:"-" }}</td>
+	    {% if update.type %}</a>{% endif %}
+	    </center>
+	    <td 
+	    {% if update.source_set.all.0.update.all.1.version %}
+	    title="{% trans "Previous Version" %}: {{ update.source_set.all.0.update.all.1.version }}"
+	    {% else %}title="{% trans "First release" %}"
+	    {% endif %}
+	    ><span>{{ update.version }}</span></td>
+	    <td>{{ update.release }}</td>
+	  </tr>
+	{% endfor %}
+	</tbody>
+</table>
+</div>
+{% endblock%}

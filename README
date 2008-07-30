@@ -1,0 +1,14 @@
+==============================================================
+                            PORSUK
+==============================================================
+
+TR:
+   Porsuk, Pardus paket depolarından topladığı paket verileri
+arasında arama/listele ve detay gösterme gibi işlemleri 
+yapması planlanan bir Django uygulamasıdır.
+
+EN:
+   Porsuk is an application for searching and listing/sorting
+of Pardus packages. It collects data from Pardus repositories
+like devel, contrib and playground. 
+

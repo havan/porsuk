@@ -1,0 +1,157 @@
+{% extends "base.html" %}
+
+{% load library %}
+
+{% block extratitle %}Package: {{ package.name }} | {% endblock %}
+
+{% block content %}
+<div id="Source">
+
+<strong>Beni Sil: Source şablonundan kopya + source >>> package.source<br /><br /></strong>
+
+Repository: {{package.source.repo.name}}<br />
+Component: {{package.source.component.component}} <br />
+
+Name: {{ package.source.name }} <br />
+Homepage: {{ package.source.homepage }}<br />
+Version: {{ package.source.version }} <br />
+Packager: {{ package.source.packager }}<br />
+Email: {{ package.source.email }} <br />
+License: {{ package.source.license }} <br />
+IsA: {{ package.source.isa }} <br />
+{% for sum in package.source.summary.all %}
+    Summary: {{ sum.lang }} - {{ sum.summary }} <br />
+{% endfor %}
+
+{% for desc in package.source.desc.all %}
+    Description: {{ desc.lang }} - {{ desc.desc }} <br />
+{% endfor %}
+
+<br />
+ 
+Archive: {{package.source.archive_name }} <br />
+Sha1Sum: {{package.source.archive_sha1sum }}<br />
+Type: {{package.source.archive_type }} <br />
+URI: {{package.source.archive_url }} <br />
+
+<br />
+BuildDependencies<br />
+{% for dep in package.source.build_dep.all %}
+    {{ dep.name }}
+    {% if dep.versionFrom %}
+       VersiomFrom: {{ dep.versionFrom }}
+    {% endif %}
+    {% if dep.versionTo %}
+       VersionTo: {{ dep.versionTo }}
+    {% endif %}
+    {% if dep.version %}
+       Verion: {{ dep.version }}
+    {% endif %}
+    {% if dep.releaseFrom %}
+        ReleaseFrom: {{ dep.releaseFrom }}
+    {% endif %}
+    {% if dep.releaseTo %}
+        ReleaseTo: {{ dep.releaseTo }}
+    {% endif %}
+    {% if dep.release %}
+        Release: {{ dep.release }}
+    {% endif %}
+    <br />
+{% endfor %}
+
+<br />
+
+Patches:<br />
+{% for patch in package.source.patch.all %}
+    {{ patch.name }}
+    {% if patch.level %}
+        Level: {{ patch.level }}
+    {% endif %}
+    <br />
+{% endfor %}
+
+<br />
+
+Packages: 
+{% for package in package.source.packages.all %}
+    {{ package.name }}<br />
+         RuntimeDependencies: <br />
+         {% for dep in package.runtime_dep.all %}
+             Dep: {{ dep.name }}
+             {% if dep.versionFrom %}
+                VersiomFrom: {{ dep.versionFrom }}
+             {% endif %}
+             {% if dep.versionTo %}
+                VersionTo: {{ dep.versionTo }}
+             {% endif %}
+             {% if dep.version %}}
+                Verion: {{ dep.version }}
+             {% endif %}
+             {% if dep.releaseFrom %}
+                 ReleaseFrom: {{ dep.releaseFrom }}
+             {% endif %}
+             {% if dep.releaseTo %}
+                 ReleaseTo: {{ dep.releaseTo }}
+             {% endif %}
+             {% if dep.release %}
+                 Release: {{ dep.release }}
+             {% endif %}
+             <br />
+        {% endfor %}            
+        <br />
+        Files: <br />
+        {% for file in package.files.all %}
+             Type: {{ file.fileType }} Path: {{ file.path }}
+             <br />
+        {% endfor %}
+
+        <br />
+        AdditionalFiles: <br />
+        {% for a_file in package.a_files.all %}
+           {{ a_file.filename }}
+           {% if file.target %}
+               {{ a_file.target }}
+           {% endif %}
+           {% if a_file.perm %}
+               {{ a_file.perm }}
+           {% endif %}
+           {% if a_file.owner %}
+               {{ a_file.owner }}
+           {% endif %}
+           {% if a_file.group %}
+               {{ a_file.group }}
+           {% endif %}
+           <br />
+        {% endfor %}
+{% endfor %}
+
+<br />
+
+Update: <br />
+{% for update in package.source.update.all %}
+    {{ update.release }}
+    {% if update.type %}
+        {{ update.type }}
+    {% endif %}
+    {{ update.date|date:"j F, Y" }}
+    {{ update.version }}
+    {{ update.name }}
+    {{ update.email }}
+    <br />
+{% endfor %}
+
+<br />
+
+Last Update: {{package.source.last_update|date:"j F, Y" }} <br />
+First Release: {{package.source.firstReleaseDate|date:"j F, Y" }} <br />
+Build Script Size: {{package.source.buildScriptSize }} <br />
+Spec Script Size: {{package.source.specScriptSize }} <br />
+Update Count: {{package.source.updateCount }} <br />
+Patch Count: {{package.source.patchCount }} <br />
+
+</div>
+{% endblock%}
+
+{% block secondary_content %}
+Secondary Content
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+
+{% load library %}
+
+{% block content %}
+
+{% trans "Packager" %}: {{ packager.name }}
+<ul>
+    <li> {% trans "Emails" %}: 
+        <ul>
+        {% for email in packager.email.all %}
+        <li>{{ email }}</li>
+        {% endfor %}
+        </ul>
+    </li>
+    <li>{% trans "Sources" %}: <a href="/pisi/packager/{{ packager.name }}/sources">{{ packager.source_set.count }}</a>
+        <ul>
+            <li>{% trans "Last 5 sources" %};
+                <ul>
+                {% for update in last_sources %}
+                    <li><a href="/pisi/source/{{ update.source_set.all.0.id }}">{{ update.source_set.all.0.name }}</a> -- {{ update.date|date:"j F, Y" }}</li>
+                {% endfor %}
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <li>{% trans "Updates" %}: <a href="/pisi/packager/{{ packager.name }}/updates">{{ packager.update_set.count }}</a>
+        <ul>
+            <li>{% trans "Last 5 updates" %};
+                <ul>
+                {% for update in last_updates %}
+                <li><a href="/pisi/update/{{ update.id }}">{{ update.date|date:"j F, Y" }}</a> -- <a href="/pisi/source/{{ update.source_set.all.0.id }}">{{ update.source_set.all.0.name }}</a></li>
+                {% endfor %}
+                </ul>
+            </li>
+        </ul>
+    </li>
+</ul>
+{% endblock%}

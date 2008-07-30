@@ -1,0 +1,172 @@
+===============================================
+                   PORSUK
+===============================================
+
+Anahtar:
+- Yapılacak
+? Kesin değil
+/ Yapılıyor
++ Bitti
+*** Önemli
+
+=============== YAPILACAKLAR ==================
+
+/ Web tasarımı
+  / Genel yapıya karar ver (Arayüz)
+
++ *** Source/Package farklılığına göre modelleri ***
++ *** ve filldb'yi yeniden yapılandır. ***
+
++ dbman.py
+   + veritabanı oluştur/sil
+   + kullanıcı oluştur/sil
+   + tabloları oluştur
+
+/ filldb.py
+  *** SVN depoları pisi'ye source depo olarak ekleniyor,
+  *** bunu yaparak pisi'den bilgileri çekmek daha kolay olacak.
+  *** Buna göre filldb.py'yi değiştirmek gerek
+  
+  / Sum ve Desc'lar için translations.xml
+    desteği ekle.
+  + Betiğin başında SVN Klasörlerini
+    UP ve EXPORT et.
+  + Başlarken DBDate'i kaydet
+  + Yeni Component'e göre düzenle
+  - Playground için dizin bilgisi gir
+  - Package nesnesine ekle;
+    -Index.packages[1324]
+      - .installedSize
+      - .packageSize
+      - .packageHash    
+      - .packageURI
+      - .summary ?
+      - .description ? 
+      - .conflicts
+      - .replaces
+      - .providesComar
+        - .om -- System.Package
+        - .script -- Package.py
+  + Source'tan paketçi bilgisini çıkar,
+    yerine packager nesnesini yarat.
+  + Email alanı da ManyToMany, buna göre
+    değişiklik yap
+    
+/ pisi_crawler.py
+  + getPackageList
+  + fetchPackages
+  - generatePackageContents
+  - paket içeriği için;
+      - lspisi gibi pisi apisini kullan
+  
+/ pak.models
+  / *** Paketçi bilgisini source'tan alıp
+    *** ForeignKey alanına çevireceğiz.
+    *** Bu değişiklik düzgün çalışana kadar
+    *** Porsuk.org'a merge yok!!!
+        + filldb.py düzenlenecek
+        + şablonlar düzeltilecek
+        + Email'ları da ManyToMany alanı yap
+  + Files etiketi bilgilerini modele ekle
+  + Dil desteği için gettext modülü ekle
+  - Playground deposu için geliştiricilerin
+    klasör isimleri gerekiyor.
+  + Source'a son güncelleme tarihi ekle
+  + Source'a Package M2M alanı ekle
+  + Paket içeriklerini alacak modeli ekle
+  + Components'i ayır ve sum&desc ekle
+  - Obsoletes ekle; Index.distribution.obsoletes
+  + Veritabanı oluşturma tarihi için sınıf ekle
+  - Package nesnesine ekle;
+    -Index.packages[1324]
+      + .installedSize
+      + .packageSize
+      + .packageHash    
+      + .packageURI
+      - .summary ?
+      - .description ? 
+      - .conflicts
+      + .replaces
+      - .providesComar
+        - .om -- System.Package
+        - .script -- Package.py
+        
+  + Paketİçeriği (files.xml) için model oluştur
+    + File fseeko.h ( .split("/")[-1]
+    + Path <Path>usr/include/zzip/fseeko.h</Path>
+    + Type <Type>header</Type>
+    + Size <Size>3825</Size>
+    + Mode <Mode>0644</Mode>
+    + Hash <Hash>ffae5caea537c011022560a8bfad0551bdbcf3bf</Hash>
+    
+- Views
+  - Search aynı paketi 4 tane gösteriyor. Çözüm bul.
+
+- Templates
+  - *** Listeler ve ayrıntı şablonları arasında div id'leri
+        aynı olabiliyor. Sonra onları kontrol etmek lazım ***
+  - * Source ve Package nesnelerine bağlı şablonları
+      yeni packager nesnesine uygun değiştirmek lazım *
+  - Package için şablon hazırlanacak
+  - Packager için şablon hazırlanacak
+  - Packagers için şablon hazırlanacak
+  - CSS
+    - Update ayrıntı sayfası için CSS hazırlanacak
+    - Source ayrıntı sayfası için CSS hazırlanacak
+  - Sol Sütün
+    - "Thanks to" bölümü için stil oluştur
+    - Neler olabilir?
+      - İstatistikler;
+        - Depo --> Paket sayısı
+        - En çok güncellenen 5/10 paket
+        - Son güncellenen 5/10 paket
+      - "Thanks to" (Kullanılan teknolojiler)
+        - Django
+        - Pardus
+        - Python
+        - Wingware
+        - FCT
+  - mainpage şablonu hazırlanacak
+
+- TemplateTags
+  - Tag yazmayı öğren
+    
++ "as-is", "as:is", "AS-IS" veya "Python",
+  "Python License" ve "PYTHON" gibi lisans
+  farklılıkları için çözüm bul.(olası farklılıklar uygun olan ile otomatik cevrilsin)
+  *** Bunun için pspec nrg'de bir çözüm bulunacak sanırım. ***
+  -- FIXED: packagekit uyumu için standart lisans isimleri kullanılmaya başladı.
+
+  
++ Veri ilişkileri diyagramı çıkar.  -- FIXED 09-12-2007 22:11:55 porsuk.xmi
+
+ 
+  
+============= YETENEK İSTEKLERİ ===============
+
++ Çoklu dil desteği (Gettext modülünü öğrenmek gerek)
+  - Paket özetleri ve tanımları seçilen dilde gösterilsin
+- Paketlere yorum & ekran görüntüsü
+- SVN diff'lerini bir şekilde siteden görme
+- Geliştiricilerin maintain edemeyecekleri paketleri 
+  işaretleyebilmesi iyi olur
+- RSS
+
+================= DÜŞÜNCELER ==================
+
+? "lspisi" komutunun çıktısını paketlere ek
+  bilgi olarak girebilsek çok güzel olacak.
+  27Ara07-Not: Bunu .pisi'lerden files.xml
+  çekerek yapacağız.
+  
+? PackageSize ve InstalledSize bilgilerinden
+  istatistik olarak faydalanmak lazım.
+  Örneğin, programming bileşeni altında kaç MB
+  paket var falan gibi...
+  
+? Depolara ve Paketlere has istatistik bilgileri
+  düşün...
+
+? Pisi paketinin son sürümünün ne olduğunu da veritabanında tutalım.
+  porsuk.org/pisi/package/mplayer/download gibi bir bağlantıyla sürekli paketin son sürümüne
+  ulaşılabilsin.

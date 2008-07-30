@@ -1,0 +1,108 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+{% load i18n %}
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>{% block extratitle %} {% trans "Welcome!" %} {{ WEB_URL }}| {% endblock %}Porsuk</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<link href="/media/css/default.css" rel="stylesheet" type="text/css" />
+{% block extrahead %} {% endblock %}
+</head>
+
+<body>
+
+<div id="logo">
+    <a href="/"><img src="/media/img/logo.png"></a>
+</div>
+
+<div id="menu">
+	<ul>
+		<li class="first"><a href="#" accesskey="2" title="">{% trans "Repositories" %}</a></li>
+		<li><a href="/pisi/packages/order-by/name" accesskey="3" title="">{% trans "Packages" %}</a></li>
+		<li><a href="/pisi/sources/order-by/name" accesskey="4" title="">{% trans "Sources" %}</a></li>
+		<li><a href="/pisi/packagers" accesskey="5" title="">{% trans "Packagers" %}</a></li>
+		<li><a href="/pisi/updates" accesskey="6" title="">{% trans "Updates" %}</a></li>
+		<li><a href="http://sudrap.org/repository/projects/porsuk/" accesskey="7" title="{% trans "Porsuk SVN Repository" %}">{% trans "About Porsuk" %}</a></li>
+	</ul>
+</div>
+
+<div id="search_box">
+	<script type="text/javascript">
+	function search(){
+	    var text = document.getElementsByName("searchpattern")[0].value;
+	    document.location= "/pisi/search/"+text;
+	    return false;
+	}
+	</script>
+
+	<form name="text" onsubmit="return search()">
+		    <input type="text" name="searchpattern">
+		    <input type="submit" value="Search">
+	</form>
+</div>
+<div id="slogan">
+{% trans "pisi evolution!" %}
+</div>
+<div id="prealpha">
+v0.0_pre20080106
+</div>
+<div id="content">
+		<div id="primaryContentContainer">
+			<div id="primaryContent">
+				{% load library %}
+				{% block content %}{% endblock %}
+				<center>
+				{% if is_paginated %}{% paginator %}{% endif %}
+				</center>
+			</div>
+		</div>		
+		
+		<div id="secondaryContent">
+		******************************* <br />
+		{% trans "Hata, iyileştirme ve yetenek isteklerini aşağıdaki adrese gönderebilirsiniz." %} <br /><br /><li style="list-style-type: square;"> ekrem.seren _ at _ gmail.com</li>
+		<br />
+		******************************* <br />
+			{% block secondary_content %}
+			
+			{% endblock %}
+		</div>
+		
+	<div class="clear"></div>
+</div>
+
+<div id="languages">
+    <form action="/i18n/setlang/" method="post" id="setlang">
+        <input type="hidden" name="next" value="/" />
+        <input type="hidden" name="language" id="language" value="" />
+    </form>
+    <ul>
+	<li class="first">
+		<a href="#" onClick="document.getElementById('language').value= 'tr'; document.getElementById('setlang').submit()">TR</a>
+	</li>
+	<li>
+		<a href="#" onClick="document.getElementById('language').value= 'en'; document.getElementById('setlang').submit()">EN</a>
+	</li>
+	<li>
+		<a href="#" onClick="document.getElementById('language').value= 'fr'; document.getElementById('setlang').submit()">FR</a>
+	</li>
+    </ul>
+</div>
+
+<div id="footer">
+    <p>Licensed under <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons</a>. Copyright &copy; Ekrem SEREN</p>
+</div>
+	
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-2469656-2");
+pageTracker._initData();
+pageTracker._trackPageview();
+</script>
+	
+</body>
+</html>

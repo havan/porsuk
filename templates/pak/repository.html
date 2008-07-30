@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% load library %}
+
+{% load i18n %}
+
+{% block extratitle %}{% trans "Repository" %}: {{ sources_list.0.repo.name }} | {% endblock %}
+
+{% block content %}
+<div id="sources">
+<table>
+	<caption>
+	{{ sources_list.0.repo.name|capfirst }} {% trans "Repository Source List" %}
+	{% if is_paginated %}
+	<span class="search-results">{% blocktrans %}Showing {{ results_per_page }} results per page of about {{ hits }} results in {{pages}} pages{% endblocktrans %}</span>
+	{% endif %}
+	</caption>
+	<thead>
+	  <tr>
+	    <th> </th>
+	    <th><a href="./name">{% trans "Name" %}</a></th>
+	    <th><a href="./packager">{% trans "Packager" %}</a></th>
+	    <th><a href="./repo">{% trans "Repository" %}</a></th>
+	    <th><a href="./component">{% trans "Component" %}</a></th>
+	    <th><a href="./version">{% trans "Version" %}</a></th>
+	    <th>{% trans "Release" %}</th>
+	    <th>{% trans "Last Update" %}</th>
+	  </tr>
+	</thead>	
+	<tfoot>
+	  <tr>
+	    <th> </th>
+	    <th>{% trans "Name" %}</th>
+	    <th>{% trans "Packager" %}</th>
+	    <th>{% trans "Repository" %}</th>
+	    <th>{% trans "Component" %}</th>
+	    <th>{% trans "Version" %}</th>
+	    <th>{% trans "Release" %}</th>
+	    <th>{% trans "Last Update" %}</th>
+	  </tr>
+	</tfoot>
+	<tbody>
+	{% for source in sources_list %}
+	  <tr class="{% cycle 'rowA' 'rowB' %}">
+	    <td><a href="{{ source.homepage }}"><img src="/media/img/homepage_small_15.png"></a></td>
+	    <td><a href="/pisi/source/{{ source.id }}">{{ source.name }}</a></td>
+	    <td><a href="/pisi/packager/{{ source.packager }}">{{ source.packager }}</a></td>
+	    <td><a href="/pisi/repository/{{ source.repo.name }}/sources">{{ source.repo.name }}</a></td>
+	    <td><a href="#">{{ source.component.component }}</a></td>
+	    <td>{{ source.version }}</td>
+	    <td>{{ source.update.latest.release }}</td>
+	    <td>{{ source.update.latest.date|date:"j F, Y" }}</td>
+	  </tr>
+	{% endfor %}
+	</tbody>
+</table>
+</div>
+{% endblock%}

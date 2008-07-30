@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+{% load library %}
+
+{% block content %}
+<div id="sources">
+<table>
+	<caption>
+	{% trans "Search Results" %}
+	{% if is_paginated %}
+	  <span class="search-results">
+	  {% blocktrans with took|floatformat:5 as took %}Showing {{ results_per_page }} results per page of about {{ hits }} results in {{pages}} pages. It took {{ took }} seconds.{% endblocktrans %}
+	  </span>
+	{% else %}
+	<span class="search-results">{% blocktrans with took|floatformat:5 as took %}Showing {{ hits }} results. It took {{ took }} seconds.{% endblocktrans %}</span>
+	{% endif %}
+	</caption>
+	<thead>
+	  <tr>
+	    <th> </th>
+	    <th>{% trans "Name" %}</th>
+	    <th>{% trans "Packager" %}</th>
+	    <th>{% trans "Repository" %}</th>
+	    <th>{% trans "Summary" %}</th>
+	  </tr>
+	</thead>	
+	<tfoot>
+	  <tr>
+	    <th> </th>
+	    <th>{% trans "Name" %}</th>
+	    <th>{% trans "Packager" %}</th>
+	    <th>{% trans "Repository" %}</th>
+	    <th>{% trans "Summary" %}</th>
+	  </tr>
+	</tfoot>
+	<tbody>
+	{% for source in sources_list %}
+	  <tr class="{% cycle 'rowA' 'rowB' %}">
+	    <td><a href="{{ source.homepage }}"><img src="/media/img/homepage_small_15.png"></a></td>
+	    <td><a href="/pisi/source/{{ source.id }}">{{ source.name }}</a></td>
+	    <td><a href="/pisi/packager/{{ source.packager }}">{{ source.packager }}</a></td>
+	    <td><a href="/pisi/repository/{{ source.repo.name }}/sources">{{ source.repo.name }}</a></td>
+	    <td>{{ source.summary.all.0.summary }}</td>
+	  </tr>
+	{% endfor %}
+	</tbody>
+</table>
+</div>
+{% endblock%}

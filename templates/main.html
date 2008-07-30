@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+
+{% block extratitle %}Main Page | {% endblock %}
+
+{% block content %}
+
+<h1>{% trans "Welcome, I'm gonna make you happy!" %}</h1>
+
+<p>
+I'm an application to make searching and getting <span title="Packages Installed Successfully as Intended, The Pardus Package System">PiSi</span> informations easy. I'm still in early and active development state. So, stay in tune and have fun!
+</p>
+
+<h4>Here's what I've got;</h4>
+<p>
+I can list packages in these repositories;
+<a href="/pisi/repository/devel/packages">Development</a>,
+<a href="/pisi/repository/pardus-2007/packages">Pardus-2007</a>,
+<a href="/pisi/repository/pardus-2008/packages">Pardus-2008</a>,
+<a href="/pisi/repository/contrib-devel/packages">Contribution</a>
+<a href="/pisi/repository/contrib-2007/packages">Contribution</a>
+<a href="/pisi/repository/contrib-2008/packages">Contribution</a>
+or sources; <a href="/pisi/repository/devel/sources">Development</a>,
+<a href="/pisi/repository/pardus-2007/sources">Pardus-2007</a>,
+<a href="/pisi/repository/pardus-2008/sources">Pardus-2008</a>,
+<a href="/pisi/repository/contrib-devel/sources">Contribution</a>.
+<a href="/pisi/repository/contrib-2007/sources">Contribution</a>.
+<a href="/pisi/repository/contrib-2008/sources">Contribution</a>.
+</p>
+
+<p>
+I've also got a list of all <a href="/pisi/updates">updates</a>.
+</p>
+
+
+{% endblock %}

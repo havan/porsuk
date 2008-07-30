@@ -1,0 +1,191 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+{% load library %}
+
+{% block extratitle %}{% trans "Source" %}: {{ source.name }} | {% endblock %}
+
+{% block content %}
+<div id="Source">
+
+    <div id="info">
+        <ul>
+        <li><span class="name"> {{ source.name }} </span> </li>
+        <li>{% trans "Repository" %}: <span class="repo"> {{source.repo.name}} </span> </li>
+        <li>{% trans "Component" %}: <span class="component"> {{source.component.component}} </span> </li>
+        <li>{% trans "Homepage" %}: <span class="homepage"> {{ source.homepage }} </span> </li>
+        <li>{% trans "Version" %}: <span class="version"> {{ source.version }} </span> </li>
+        <li>{% trans "Packager" %}: <span class="packager"> {{ source.packager }} </span> </li>
+        <li>{% trans "Email" %}: 
+        <span class="email">         
+        {% for email in source.packager.email.all %}
+            {{ email.email }},
+        {% endfor %}
+        </span> </li>
+        
+        {% for license in source.license.all %}
+            <li>{% trans "License" %}: <span class="license"> {{ license.license }} </span>
+        {% endfor %}
+        
+        {% for isa in source.isa.all %}
+            <li>{% trans "IsA" %}: <span class="isa"> {{ isa.isa }} </span> 
+        {% endfor %}
+        </ul>
+    </div>
+
+    <div id="sum">
+        {% for sum in source.summary.all %}
+            <li>{% trans "Summary" %}: <span class=""> {{ sum.lang }} </span> - <span class=""> {{ sum.summary }} </span> 
+        {% endfor %}
+    </div>
+    
+    <div id="desc">
+        {% for desc in source.desc.all %}
+            <li>{% trans "Description" %}: <span class=""> {{ desc.lang }} </span> - <span class=""> {{ desc.desc }} </span> 
+        {% endfor %}
+    </div>
+
+    <div id="archive">
+        <li>
+        {% trans "Archive" %}: <span class=""> {{source.archive_name }} </span> 
+        {% trans "Sha1Sum" %}: <span class=""> {{source.archive_sha1sum }} </span>
+        {% trans "Type" %}: <span class=""> {{source.archive_type }} </span> 
+        {% trans "URI" %}: <span class=""> {{source.archive_url }} </span> 
+        </li>
+    </div>
+
+    <div id="build_dep">
+        {% trans "BuildDependencies" %}
+        <ul>
+        {% for dep in source.build_dep.all %}
+            <li>
+            <span class="dep"> {{ dep.name }} </span>
+            {% if dep.versionFrom %}
+               {% trans "VersionFrom" %}: <span class="dep_info"> {{ dep.versionFrom }} </span>
+            {% endif %}
+            {% if dep.versionTo %}
+               {% trans "VersionTo" %}: <span class="dep_info"> {{ dep.versionTo }} </span>
+            {% endif %}
+            {% if dep.version %}
+               {% trans "Version" %}: <span class="dep_info"> {{ dep.version }} </span>
+            {% endif %}
+            {% if dep.releaseFrom %}
+                {% trans "ReleaseFrom" %}: <span class="dep_info"> {{ dep.releaseFrom }} </span>
+            {% endif %}
+            {% if dep.releaseTo %}
+                {% trans "ReleaseTo" %}: <span class="dep_info"> {{ dep.releaseTo }} </span>
+            {% endif %}
+            {% if dep.release %}
+                {% trans "Release" %}: <span class="dep_info"> {{ dep.release }} </span>
+            {% endif %}
+            </li>
+        {% endfor %}
+        </ul>
+    </div>
+
+    {% trans "Patches" %}:
+    <div id="patches">
+    {% for patch in source.patch.all %}
+        <li>
+        <span class="patch"> {{ patch.name }} </span>
+        {% if patch.level %}
+            {% trans "Level" %}: <span class="level"> {{ patch.level }} </span>
+        {% endif %}
+        </li>
+    {% endfor %}
+    </div>
+
+    <div id="packages">
+    {% for package in source.packages.all %}
+        <div id="package">
+            <span class="package"> {% trans "Packages" %}: {{ package.name }} </span>
+                 <br/>{% trans "RuntimeDependencies" %}:
+                <div class="runtime_dep">
+                 <ul>
+                 {% for dep in package.runtime_dep.all %}
+                     <li>
+                     <span class="dep"> {{ dep.name }} </span>
+                     {% if dep.versionFrom %}
+                        {% trans "VersionFrom" %}: <span class="dep_info"> {{ dep.versionFrom }} </span>
+                     {% endif %}
+                     {% if dep.versionTo %}
+                        {% trans "VersionTo" %}: <span class="dep_info"> {{ dep.versionTo }} </span>
+                     {% endif %}
+                     {% if dep.version %}
+                        {% trans "Version" %}: <span class="dep_info"> {{ dep.version }} </span>
+                     {% endif %}
+                     {% if dep.releaseFrom %}
+                         {% trans "ReleaseFrom" %}: <span class="dep_info"> {{ dep.releaseFrom }} </span>
+                     {% endif %}
+                     {% if dep.releaseTo %}
+                         {% trans "ReleaseTo" %}: <span class="dep_info"> {{ dep.releaseTo }} </span>
+                     {% endif %}
+                     {% if dep.release %}
+                         {% trans "Release" %}: <span class="dep_info"> {{ dep.release }} </span>
+                     {% endif %}
+                     </li>
+                 {% endfor %}            
+                 </ul>
+                </div>
+                
+                <div class="files">
+                {% trans "Files" %}: 
+                {% for file in package.files.all %}
+                     <li>
+                     {% trans "Path" %}: <span class=""> {{ file.path }} </span> {% trans "Type" %}: <span class=""> {{ file.fileType }} </span>
+                     </li>
+                {% endfor %}
+                </div>
+                
+                <div class="a_files">
+                {% trans "AdditionalFiles" %}: 
+                {% for a_file in package.a_files.all %}
+                <li>
+                   <span class=""> {{ a_file.filename }} </span>
+                   {% if file.target %}
+                       <span class=""> {{ a_file.target }} </span>
+                   {% endif %}
+                   {% if a_file.perm %}
+                       <span class=""> {{ a_file.perm }} </span>
+                   {% endif %}
+                   {% if a_file.owner %}
+                       <span class=""> {{ a_file.owner }} </span>
+                   {% endif %}
+                   {% if a_file.group %}
+                       <span class=""> {{ a_file.group }} </span>
+                   {% endif %}
+                </li>
+                {% endfor %}
+                </div>
+        </div>
+    {% endfor %}
+    </div>
+
+    {% trans "Updates" %}: 
+    {% for update in source.update.all %}
+        <li>
+        <span class=""> {{ update.release }} </span>
+        {% if update.type %}
+            <span class=""> {{ update.type }} </span>
+        {% endif %}
+        <span class=""> {{ update.date|date:"j F, Y" }} </span>
+        <span class=""> {{ update.version }} </span>
+        <span class=""> {{ update.name }} </span>
+        <span class=""> {{ update.email }} </span>
+        </li>
+    {% endfor %}
+
+    <div id="stats">
+        <li>{% trans "Last Update" %}: <span class=""> {{source.last_update|date:"j F, Y" }} </span> </li>
+        <li>{% trans "First Release" %}: <span class=""> {{source.firstReleaseDate|date:"j F, Y" }} </span> </li>
+        <li>{% trans "Build Script Size" %}: <span class=""> {{source.buildScriptSize }} </span> </li>
+        <li>{% trans "Spec Script Size" %}: <span class=""> {{source.specScriptSize }} </span> </li>
+        <li>{% trans "Update Count" %}: <span class=""> {{source.updateCount }} </span> </li>
+        <li>{% trans "Patch Count" %}: <span class=""> {{source.patchCount }} </span> </li>
+    </div>
+</div>
+{% endblock%}
+
+{% block secondary_content %}
+{% trans "Secondary Content" %}
+{% endblock %}

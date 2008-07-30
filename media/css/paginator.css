@@ -1,0 +1,62 @@
+/** PAGINATOR **/
+.paginator { padding:.5em .75em; float:center; font:normal .8em verdana; }
+
+.paginator a {
+    text-decoration: none;
+}
+
+.paginator .prev-na,
+.paginator .next-na {
+	padding:.3em;
+	font-weight:bold;
+}
+ 
+.paginator .prev-na,
+.paginator .next-na {
+	border:1px solid #ccc;
+	background-color:#f9f9f9;
+	color:#aaa;
+	font-weight:normal;
+}
+ 
+.paginator .prev a, .paginator .prev a:visited,
+.paginator .next a, .paginator .next a:visited {
+	border:1px solid #4E90CD;
+	background-color:#DCE0FF;
+	color:#396895;
+	padding:.3em;
+	font-weight:bold;
+}
+
+.paginator .page a, .paginator .page a:visited, .paginator .curr {
+	padding:.3em;
+	font-weight:bold;
+	border:1px solid #4E90CD;
+	background-color:#DCE0FF;
+	color:#396895;
+}
+ 
+.paginator .curr { 
+	background-color:#4E90CD;
+	color:#fff;
+	border:1px solid #4E90CD;
+	font-weight:bold;
+}
+ 
+.paginator .page a:hover,
+.paginator .curr a:hover,
+.paginator .prev a:hover,
+.paginator .next a:hover {
+	color:#fff;
+	background-color:#4E90CD;
+	border:1px solid #4E90CD;
+}
+
+.paginator .desc {
+	padding: 0.5em;
+	float: center;
+}
+
+.paginator .footnum {
+	font: bold 1.2em arial;
+}

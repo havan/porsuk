@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+
+{% block extratitle %}{% trans "Package List" %} | {% endblock %}
+
+{% block content %}
+<div id="packages">
+<table>
+	<caption>
+	{% trans "Package List" %}
+	{% if is_paginated %}
+	<span class="search-results">{% blocktrans %}Showing {{ results_per_page }} results per page of about {{ hits }} results in {{pages}} pages{% endblocktrans %}</span>
+	{% endif %}
+	</caption>
+	<thead>
+	  <tr>
+	    <th></td>
+	    <th>{% trans "Name" %}<span class="orderbuttons"><a href="./name">+</a> <a href="./-name">-</a></span></td>
+	    <th>{% trans "Packager" %}</td>
+	    <th>{% trans "Repository" %}</td>
+	    <th>{% trans "Component" %}</td>
+	    <th>{% trans "Version" %}</th>
+	    <th>{% trans "Release" %}</th>
+	    <th>{% trans "Last Update" %}</th>
+	  </tr>
+	</thead>	
+	<tfoot>
+	  <tr>
+	    <th></td>
+	    <th>{% trans "Name" %}</td>
+	    <th>{% trans "Packager" %}</td>
+	    <th>{% trans "Repository" %}</td>
+	    <th>{% trans "Component" %}</td>
+	    <th>{% trans "Version" %}</th>
+	    <th>{% trans "Release" %}</th>
+	    <th>{% trans "Last Update" %}</th>
+	  </tr>
+	</tfoot>
+	<tbody>
+	  {% for package in packages_list %}  
+	  <tr class="{% cycle 'rowA' 'rowB' %}">
+	    <td><a href="{{ package.source.homepage }}"><img src="/media/img/homepage_small_15.png"></a></td>
+	    <td><a href="/pisi/package/{{ package.id }}">{{ package.name }}</a></td>
+	    <td><a href="/pisi/packager/{{ package.source.packager }}">{{ package.source.packager }}</a></td>
+	    <td><a href="/pisi/repository/{{ package.source.repo.name }}/packages">{{ package.source.repo.name }}</a></td>
+	    <td><a href="#">{{ package.source.component.component }}</a></td>
+	    <td>{{ package.source.version }}</td>
+	    <td>{{ package.source.update.latest.release }}</td>
+	    <td>{{ package.source.update.latest.date|date:"j F, Y" }}</td>
+	  </tr>
+	{% endfor %}
+	</tbody>
+</table>
+</div>
+{% endblock%}

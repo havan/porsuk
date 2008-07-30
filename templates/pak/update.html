@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+
+{% block extratitle %}{% trans "Update" %}: {{ update.id }} - {{ update.date|date:"j F, Y" }} | {% endblock %}
+
+{% block content %}
+<div id="update">
+    <span class="date">
+        {% trans "Date" %}: {{ update.date|date:"j F, Y" }} <br />
+    </span>
+    <span class="release">
+        {% trans "Release" %}: {{ update.release }} <br />
+    </span>
+    <span class="version">
+        {% trans "Version" %}: {{ update.version }} <br />
+    </span>
+    <span class="type">
+        {% trans "Type" %}: {{ update.type }} <br />
+    </span>
+    <span class="name">
+        {% trans "Name" %}: {{ update.name }} <br />
+    </span>
+    <span class="email">
+        {% trans "Email" %}: {{ update.email }} <br />
+    </span>
+    <span class="comment">
+        {% trans "Comment" %}: {{ update.comment }} <br />
+    </span>
+    <span class="source_name">
+        {% trans "Package" %}: {{ update.source_set.all.0.name }} <br />
+    </span>
+</div>
+{% endblock %}

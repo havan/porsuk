@@ -1,0 +1,560 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-01-08 04:33+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: pak/models.py:18
+msgid "DB Creation Date&Time"
+msgstr ""
+
+#: pak/models.py:27
+msgid "Creation Date"
+msgstr ""
+
+#: pak/models.py:28
+msgid "Creation Dates"
+msgstr ""
+
+#: pak/models.py:31 pak/models.py:41 pak/models.py:278
+#: templates/pak/source.html:22
+msgid "License"
+msgstr "Lisans"
+
+#: pak/models.py:32 pak/models.py:88 pak/models.py:285
+msgid "URL"
+msgstr "URL"
+
+#: pak/models.py:42
+msgid "Licenses"
+msgstr "Lisanslar"
+
+#: pak/models.py:45 pak/models.py:59 pak/models.py:113
+msgid "Language"
+msgstr "Dil"
+
+#: pak/models.py:46 pak/models.py:55 pak/models.py:114 pak/models.py:129
+#: pak/models.py:280 templates/pak/search.html:24
+#: templates/pak/search.html.py:33 templates/pak/source.html:33
+msgid "Summary"
+msgstr "Özet"
+
+#: pak/models.py:56
+msgid "Summaries"
+msgstr "Özetler"
+
+#: pak/models.py:60 pak/models.py:69 pak/models.py:130 pak/models.py:281
+#: templates/pak/source.html:39
+msgid "Description"
+msgstr "Tanım"
+
+#: pak/models.py:70
+msgid "Descriptions"
+msgstr "Tanımlar"
+
+#: pak/models.py:73 pak/models.py:83
+msgid "Patch"
+msgstr "Yama"
+
+#: pak/models.py:74 templates/pak/source.html:87
+#, fuzzy
+msgid "Level"
+msgstr "Düzey"
+
+#: pak/models.py:84 pak/models.py:287 templates/pak/source.html:81
+msgid "Patches"
+msgstr "Yamalar"
+
+#: pak/models.py:87 pak/models.py:226 pak/models.py:269 pak/models.py:282
+#: pak/models.py:351 templates/pak/packagers.html:20
+#: templates/pak/packagers.html.py:29 templates/pak/packages.html:19
+#: templates/pak/packages.html.py:31 templates/pak/repository.html:21
+#: templates/pak/repository.html.py:33 templates/pak/search.html:21
+#: templates/pak/search.html.py:30 templates/pak/source.html:15
+#: templates/pak/sources.html:19 templates/pak/sources.html.py:31
+#: templates/pak/update.html:21
+msgid "Name"
+msgstr "İsim"
+
+#: pak/models.py:96 pak/models.py:265 templates/pak/packages.html:21
+#: templates/pak/packages.html.py:33 templates/pak/repository.html:7
+#: templates/pak/repository.html.py:23 templates/pak/repository.html:35
+#: templates/pak/search.html:23 templates/pak/search.html.py:32
+#: templates/pak/source.html:13 templates/pak/sources.html:21
+#: templates/pak/sources.html.py:33 templates/pak/updates.html:22
+#: templates/pak/updates.html.py:33
+msgid "Repository"
+msgstr "Depo"
+
+#: pak/models.py:97 templates/base.html:22
+msgid "Repositories"
+msgstr "Depolar"
+
+#: pak/models.py:100 templates/pak/source.html:26
+msgid "IsA"
+msgstr ""
+
+#: pak/models.py:109 pak/models.py:279
+msgid "Is A"
+msgstr ""
+
+#: pak/models.py:110
+msgid "Is A's"
+msgstr ""
+
+#: pak/models.py:123 pak/models.py:128
+msgid "Local Name"
+msgstr "Yerel İsim"
+
+#: pak/models.py:124
+msgid "Local Names"
+msgstr "Yerel İsimler"
+
+#: pak/models.py:127 pak/models.py:142 pak/models.py:266
+#: templates/pak/packages.html:22 templates/pak/packages.html.py:34
+#: templates/pak/repository.html:24 templates/pak/repository.html.py:36
+#: templates/pak/source.html:14 templates/pak/sources.html:22
+#: templates/pak/sources.html.py:34
+msgid "Component"
+msgstr "Bileşen"
+
+#: pak/models.py:143
+msgid "Components"
+msgstr "Bileşenler"
+
+#: pak/models.py:147 pak/models.py:164
+msgid "Dependency"
+msgstr "Bağımlılık"
+
+#: pak/models.py:148
+msgid "Version From"
+msgstr ""
+
+#: pak/models.py:149
+msgid "Version To"
+msgstr ""
+
+#: pak/models.py:150 pak/models.py:243 pak/models.py:271
+#: templates/pak/packages.html:23 templates/pak/packages.html.py:35
+#: templates/pak/repository.html:25 templates/pak/repository.html.py:37
+#: templates/pak/source.html:17 templates/pak/source.html.py:65
+#: templates/pak/source.html:110 templates/pak/sources.html:23
+#: templates/pak/sources.html.py:35 templates/pak/update.html:15
+#: templates/pak/updates.html:24 templates/pak/updates.html.py:35
+msgid "Version"
+msgstr "Versiyon"
+
+#: pak/models.py:151
+msgid "Release From"
+msgstr ""
+
+#: pak/models.py:152
+msgid "Release To"
+msgstr ""
+
+#: pak/models.py:153 pak/models.py:240 templates/pak/packages.html:24
+#: templates/pak/packages.html.py:36 templates/pak/repository.html:26
+#: templates/pak/repository.html.py:38 templates/pak/source.html:74
+#: templates/pak/source.html.py:119 templates/pak/sources.html:24
+#: templates/pak/sources.html.py:36 templates/pak/update.html:12
+#: templates/pak/updates.html:25 templates/pak/updates.html.py:36
+msgid "Release"
+msgstr "Sürüm"
+
+#: pak/models.py:165
+msgid "Dependencies"
+msgstr "Bağımlılıklar"
+
+#: pak/models.py:168 pak/models.py:200 templates/pak/source.html:130
+msgid "Path"
+msgstr "Yol"
+
+#: pak/models.py:169
+msgid "fileType"
+msgstr ""
+
+#: pak/models.py:178
+msgid "File"
+msgstr "Dosya"
+
+#: pak/models.py:179 pak/models.py:354 templates/pak/source.html:127
+msgid "Files"
+msgstr "Dosyalar"
+
+#: pak/models.py:182 pak/models.py:199
+msgid "File Name"
+msgstr "Dosya Adı"
+
+#: pak/models.py:183
+msgid "Target"
+msgstr "Hedef"
+
+#: pak/models.py:184
+msgid "Permisions"
+msgstr "İzinler"
+
+#: pak/models.py:185
+msgid "Owner"
+msgstr "Sahibi"
+
+#: pak/models.py:186
+msgid "Group"
+msgstr "Grup"
+
+#: pak/models.py:195
+msgid "Additional File"
+msgstr "Ek Dosya"
+
+#: pak/models.py:196 pak/models.py:355
+msgid "Additional Files"
+msgstr "Ek Dosyalar"
+
+#: pak/models.py:201 pak/models.py:241 pak/models.py:284
+#: templates/pak/source.html:47 templates/pak/source.html.py:130
+#: templates/pak/update.html:18 templates/pak/updates.html:23
+#: templates/pak/updates.html.py:34
+msgid "Type"
+msgstr "Tür"
+
+#: pak/models.py:202
+msgid "Size"
+msgstr "Boyut"
+
+#: pak/models.py:203
+msgid "Mode"
+msgstr ""
+
+#: pak/models.py:204 pak/models.py:360
+msgid "Hash"
+msgstr ""
+
+#: pak/models.py:214
+msgid "IntraFile"
+msgstr ""
+
+#: pak/models.py:215 pak/models.py:367
+msgid "IntraFiles"
+msgstr ""
+
+#: pak/models.py:217 pak/models.py:227 pak/models.py:246
+#: templates/pak/packagers.html:23 templates/pak/packagers.html.py:32
+#: templates/pak/source.html:19 templates/pak/update.html:24
+msgid "Email"
+msgstr ""
+
+#: pak/models.py:233 pak/models.py:245 pak/models.py:274
+#: templates/pak/packager.html:9 templates/pak/packages.html:20
+#: templates/pak/packages.html.py:32 templates/pak/repository.html:22
+#: templates/pak/repository.html.py:34 templates/pak/search.html:22
+#: templates/pak/search.html.py:31 templates/pak/source.html:18
+#: templates/pak/sources.html:20 templates/pak/sources.html.py:32
+msgid "Packager"
+msgstr "Paketçi"
+
+#: pak/models.py:234 templates/base.html:25 templates/pak/packagers.html:12
+msgid "Packagers"
+msgstr "Paketçiler"
+
+#: pak/models.py:242 templates/pak/update.html:9 templates/pak/updates.html:19
+#: templates/pak/updates.html.py:30
+msgid "Date"
+msgstr "Tarih"
+
+#: pak/models.py:244 templates/pak/update.html:27
+msgid "Comment"
+msgstr "Yorum"
+
+#: pak/models.py:259 pak/models.py:288 templates/pak/update.html:4
+msgid "Update"
+msgstr "Güncelleme"
+
+#: pak/models.py:260 templates/base.html:26 templates/pak/packager.html:29
+#: templates/pak/packagers.html:22 templates/pak/packagers.html.py:31
+#: templates/pak/source.html:159
+msgid "Updates"
+msgstr "Güncellemeler"
+
+#: pak/models.py:270 templates/pak/source.html:16
+msgid "Homepage"
+msgstr "Ana Sayfa"
+
+#: pak/models.py:283 templates/pak/source.html:46
+msgid "Sha1Sum"
+msgstr ""
+
+#: pak/models.py:286
+msgid "Build Dependencies"
+msgstr "İnşa Bağımlılıkları"
+
+#: pak/models.py:289 pak/models.py:385 templates/base.html:23
+#: templates/pak/packagers.html:21 templates/pak/packagers.html.py:30
+#: templates/pak/source.html:96
+msgid "Packages"
+msgstr "Paketler"
+
+#: pak/models.py:292
+msgid "Source Slug"
+msgstr ""
+
+#: pak/models.py:295 templates/pak/packages.html:25
+#: templates/pak/packages.html.py:37 templates/pak/repository.html:27
+#: templates/pak/repository.html.py:39 templates/pak/source.html:174
+#: templates/pak/sources.html:25 templates/pak/sources.html.py:37
+msgid "Last Update"
+msgstr "Son Güncelleme"
+
+#: pak/models.py:296
+msgid "First Release Date"
+msgstr "İlk Sürüm Tarihi"
+
+#: pak/models.py:297 templates/pak/source.html:176
+msgid "Build Script Size"
+msgstr "İnşa Betiği Boyutu"
+
+#: pak/models.py:298 templates/pak/source.html:177
+msgid "Spec Script Size"
+msgstr "Spec Betiği Boyutu"
+
+#: pak/models.py:299 templates/pak/source.html:178
+msgid "Update Count"
+msgstr "Güncelleme Sayısı"
+
+#: pak/models.py:300 templates/pak/source.html:179
+msgid "Patch Count"
+msgstr "Yama Sayısı"
+
+#: pak/models.py:314
+msgid "General"
+msgstr "Genel"
+
+#: pak/models.py:325 templates/pak/source.html:45
+msgid "Archive"
+msgstr "Arşiv"
+
+#: pak/models.py:331
+msgid "Other"
+msgstr "Diğer"
+
+#: pak/models.py:334
+msgid "Statistics"
+msgstr "İstatistikler"
+
+#: pak/models.py:346 templates/pak/source.html:6
+#, fuzzy
+msgid "Source"
+msgstr "Kaynak"
+
+#: pak/models.py:347 templates/base.html:24 templates/pak/packager.html:18
+#, fuzzy
+msgid "Sources"
+msgstr "Kaynaklar"
+
+#: pak/models.py:352
+msgid "Package Slug"
+msgstr ""
+
+#: pak/models.py:353
+msgid "Runtime Dependencies"
+msgstr "Çalışma bağımlılıkları"
+
+#: pak/models.py:358
+msgid "Installed Size"
+msgstr "Yerleşik Boyut"
+
+#: pak/models.py:359
+msgid "Package Size"
+msgstr "Paket Boyutu"
+
+#: pak/models.py:361 templates/pak/source.html:48
+msgid "URI"
+msgstr ""
+
+#: pak/models.py:363
+msgid "Replaces"
+msgstr ""
+
+#: pak/models.py:384 templates/pak/update.html:30
+#: templates/pak/updates.html:20 templates/pak/updates.html.py:31
+msgid "Package"
+msgstr "Paket"
+
+#: templates/base.html:7
+msgid "Welcome!"
+msgstr "Hoşgeldiniz!"
+
+#: templates/base.html:27
+msgid "Porsuk SVN Repository"
+msgstr "Porsuk SVN Deposu"
+
+#: templates/base.html:27
+msgid "About Porsuk"
+msgstr "Porsuk Hakkında"
+
+#: templates/base.html:46
+msgid "pisi evolution!"
+msgstr "pisi devrimi!"
+
+#: templates/base.html:64
+msgid ""
+"Hata, iyileştirme ve yetenek isteklerini aşağıdaki adrese gönderebilirsiniz."
+msgstr ""
+
+#: templates/main.html:9
+msgid "Welcome, I'm gonna make you happy!"
+msgstr "Hoşgeldin, geldiğine pişman olmayacaksın!"
+
+#: templates/paginator.html:6
+msgid "First Page"
+msgstr "İlk Sayfa"
+
+#: templates/paginator.html:6
+msgid "First"
+msgstr "İlk"
+
+#: templates/paginator.html:12
+msgid "Previous Page"
+msgstr "Önceki Sayfa"
+
+#: templates/paginator.html:12 templates/paginator.html.py:15
+msgid "Previous"
+msgstr "Önceki"
+
+#: templates/paginator.html:20
+msgid "Current Page"
+msgstr "Şimdiki Sayfa"
+
+#: templates/paginator.html:23
+msgid "Page"
+msgstr "Sayfa"
+
+#: templates/paginator.html:30
+msgid "Next Page"
+msgstr "Sonraki Sayfa"
+
+#: templates/paginator.html:30 templates/paginator.html.py:33
+msgid "Next"
+msgstr "Sonraki"
+
+#: templates/paginator.html:38
+msgid "Last Page"
+msgstr "Son Sayfa"
+
+#: templates/paginator.html:38
+msgid "Last"
+msgstr "Son"
+
+#: templates/pak/packager.html:11
+msgid "Emails"
+msgstr ""
+
+#: templates/pak/packager.html:20
+#, fuzzy
+msgid "Last 5 sources"
+msgstr "Son 5 kaynak"
+
+#: templates/pak/packager.html:31
+msgid "Last 5 updates"
+msgstr "Son 5 güncelleme"
+
+#: templates/pak/packagers.html:14 templates/pak/packages.html:13
+#: templates/pak/repository.html:15 templates/pak/sources.html:13
+#: templates/pak/updates.html:14
+#, python-format
+msgid ""
+"Showing %(results_per_page)s results per page of about %(hits)s results in %"
+"(pages)s pages"
+msgstr ""
+
+#: templates/pak/packages.html:5 templates/pak/packages.html.py:11
+msgid "Package List"
+msgstr "Paket Listesi"
+
+#: templates/pak/repository.html:13
+#, fuzzy
+msgid "Repository Source List"
+msgstr "Depo Kaynak Paket Listesi"
+
+#: templates/pak/search.html:9
+msgid "Search Results"
+msgstr "Arama Sonuçları"
+
+#: templates/pak/search.html:12
+#, python-format
+msgid ""
+"Showing %(results_per_page)s results per page of about %(hits)s results in %"
+"(pages)s pages. It took %(took|floatformat:5)s seconds."
+msgstr ""
+
+#: templates/pak/search.html:15
+#, python-format
+msgid "Showing %(hits)s results. It took %(took|floatformat:5)s seconds."
+msgstr ""
+
+#: templates/pak/source.html:53
+msgid "BuildDependencies"
+msgstr "İnşaBağımlılıkları"
+
+#: templates/pak/source.html:59 templates/pak/source.html.py:104
+msgid "VersionFrom"
+msgstr ""
+
+#: templates/pak/source.html:62 templates/pak/source.html.py:107
+msgid "VersionTo"
+msgstr ""
+
+#: templates/pak/source.html:68 templates/pak/source.html.py:113
+msgid "ReleaseFrom"
+msgstr ""
+
+#: templates/pak/source.html:71 templates/pak/source.html.py:116
+msgid "ReleaseTo"
+msgstr ""
+
+#: templates/pak/source.html:97
+msgid "RuntimeDependencies"
+msgstr "ÇalışmaBağımlılıkları"
+
+#: templates/pak/source.html:136
+msgid "AdditionalFiles"
+msgstr "EkDosyalar"
+
+#: templates/pak/source.html:175
+msgid "First Release"
+msgstr "İlk Sürüm"
+
+#: templates/pak/source.html:185
+msgid "Secondary Content"
+msgstr ""
+
+#: templates/pak/sources.html:4 templates/pak/sources.html.py:11
+#, fuzzy
+msgid "Source List"
+msgstr "Kaynak Paket Listesi"
+
+#: templates/pak/updates.html:5 templates/pak/updates.html.py:12
+msgid "Update List"
+msgstr "Güncelleme Listesi"
+
+#: templates/pak/updates.html:21 templates/pak/updates.html.py:32
+msgid "Updater"
+msgstr "Güncelleyen"
+
+#: templates/pak/updates.html:54
+msgid "Previous Version"
+msgstr "Önceki Versiyon"
+
+#: templates/pak/updates.html:55
+msgid "First release"
+msgstr "İlk sürüm"
